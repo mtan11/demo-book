@@ -1,5 +1,6 @@
 # demo-books
-[Live project](https://mtan11.github.io/demo-book/).
+## Live demo
+[Book store](https://mtan11.github.io/demo-book/).
 ## Project setup
 ```
 npm install
