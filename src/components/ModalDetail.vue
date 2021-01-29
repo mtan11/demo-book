@@ -24,7 +24,12 @@
             <b>{{ price }} </b>
           </p>
         </b-card-text>
-        <b-button variant="primary" @click="addBookToCart(detailBooks)">Add to cart</b-button>
+          <b-button variant="primary" class="mr-2" @click="addBookToCart(detailBooks)"
+            >Add to cart</b-button
+          >
+          <b-button variant="info" @click="openYourCar">
+            View cart
+          </b-button>
       </b-card>
     </b-modal>
   </div>
@@ -59,10 +64,14 @@ export default {
     price() {
       if (this.detailBooks?.saleInfo?.saleability === 'NOT_FOR_SALE') {
         return 'Not for sale';
-      } if (this.detailBooks?.saleInfo?.saleability === 'FREE') {
+      }
+      if (this.detailBooks?.saleInfo?.saleability === 'FREE') {
         return 'FREE';
       }
-      return `${this.detailBooks?.saleInfo?.listPrice?.amount.toLocaleString('vi-VN')} VNĐ` ?? 'Đang cập nhật';
+      return (
+        `${this.detailBooks?.saleInfo?.listPrice?.amount.toLocaleString('vi-VN')} VNĐ`
+        ?? 'Đang cập nhật'
+      );
     },
   },
   methods: {
@@ -73,6 +82,9 @@ export default {
         alert('Success');
         this.$store.dispatch('addBookToCart', book);
       }
+    },
+    openYourCar() {
+      this.$bvModal.show('modal-your-cart');
     },
   },
 };
