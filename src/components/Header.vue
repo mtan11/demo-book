@@ -35,8 +35,8 @@
               {{ yourCart.length }}
             </div> -->
           </b-nav-item>
-          <b-nav-item :active="this.$route.name === 'Home'" href="/"> Home </b-nav-item>
-          <b-nav-item :active="this.$route.name === 'About'" href="/about">
+          <b-nav-item :active="this.$route.name === 'Home'" :to="{name:'Home'}"> Home </b-nav-item>
+          <b-nav-item :active="this.$route.name === 'About'" :to="{name:'About'}">
             About
           </b-nav-item>
         </b-navbar-nav>
