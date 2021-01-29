@@ -1,12 +1,30 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    </div> -->
+    <app-header title="BOOK STORE"></app-header>
+    <app-modal-detail></app-modal-detail>
+    <app-modal-cart></app-modal-cart>
+    <router-view />
   </div>
 </template>
+
+<script>
+import HeaderVue from './components/Header.vue';
+import ModalDetailVue from './components/ModalDetail.vue';
+import YourCartVue from './components/YourCart.vue';
+
+export default {
+  name: 'App',
+  components: {
+    appHeader: HeaderVue,
+    appModalDetail: ModalDetailVue,
+    appModalCart: YourCartVue,
+  },
+};
+</script>
 
 <style>
 #app {
@@ -14,19 +32,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #303030;
+  background-color: #f5f5f5;
+}
+body {
+   background-color: #f5f5f5 !important;
 }
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>
